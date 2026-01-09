@@ -26,8 +26,9 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void BeginGame()
+    public void BeginGame(int difficulty)
     {
+        spawnInterval /= difficulty;    
         isGameActive = true;
         titleScreen.gameObject.SetActive(false);
         gameScreen.SetActive(true);    
