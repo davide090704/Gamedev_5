@@ -154,3 +154,5 @@ MonoBehaviour:
   maxInitialTorque: 1.5
   initialXRange: 4.2
   initialY: -2
+  pointValue: 1
+  explosion: {fileID: 5112437202714306363, guid: 7b4191607aae74c0ab244a8d6e48adbf, type: 3}

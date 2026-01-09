@@ -9,11 +9,14 @@ public class Target : MonoBehaviour
     public float maxInitialTorque = 5f;
     public float initialXRange;
     public float initialY;
+    private GameManager gameManager;
+    public int pointValue;
+    public ParticleSystem explosion;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();  
         body = GetComponent<Rigidbody>();
         body.AddForce (RandomUpwardForce(), ForceMode.Impulse);
         body.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(), ForceMode.Impulse); 
@@ -41,6 +44,8 @@ public class Target : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        gameManager.UpdateScore(pointValue);
+        Instantiate(explosion, transform.position, explosion.transform.rotation);
         Destroy(gameObject);
     }
     private void OnTriggerEnter(Collider other)
